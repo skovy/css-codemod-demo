@@ -17,15 +17,15 @@ const processor = postcss(plugins);
 const transform = async () => {
   const files = glob.sync("./src/**/*.css");
 
-  await Promise.all(
-    files.map(async (file) => {
-      const contents = fs.readFileSync(file).toString();
+  const promises = files.map(async (file) => {
+    const contents = fs.readFileSync(file).toString();
 
-      const result = await processor.process(contents, { from: undefined });
+    const result = await processor.process(contents, { from: undefined });
 
-      fs.writeFileSync(file, result.css);
-    })
-  );
+    fs.writeFileSync(file, result.css);
+  });
+
+  await Promise.all(promises);
 };
 
 transform();
