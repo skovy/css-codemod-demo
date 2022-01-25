@@ -2,6 +2,8 @@
 
 An example CSS codemod built with [PostCSS](https://postcss.org) and a few other packages.
 
+Read the full blog post and tutorial for **[creating CSS codemods with PostCSS](https://www.skovy.dev/blog/css-codemods-with-postcss)**.
+
 ## Setup
 
 1. Clone the repository and change into the directory
